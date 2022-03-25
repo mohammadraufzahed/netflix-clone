@@ -1,0 +1,33 @@
+.container {
+  width: 100vw;
+  background-color: var(--primary-two);
+  margin-top: 10px;
+  min-height: 404px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  color: var(--primary-three);
+  text-align: center;
+  grid-auto-rows: auto;
+  grid-auto-columns: max-content;
+  justify-items: center;
+  align-items: center;
+  margin-bottom: 10px;
+  &.right {
+    grid-template-areas: "box title";
+  }
+  &.left {
+    grid-template-areas: "title box";
+  }
+  & > div:nth-child(1) {
+    grid-area: title;
+  }
+  & > div:nth-child(2) {
+    grid-area: box;
+  }
+  @media only screen and (max-width: 993px) {
+    & {
+      grid-template-columns: 1fr;
+      grid-template-areas: "title" "box" !important;
+    }
+  }
+}

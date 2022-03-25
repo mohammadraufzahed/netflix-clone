@@ -1,8 +1,14 @@
+import SpecialBox from "components/SpecialBox";
 import type { NextPage } from "next";
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 import Logo from "public/app.svg";
 import classes from "styles/pages/index/index.module.scss";
+import TvImage from "public/images/assets/tv.png";
+import MobileImage from "public/images/assets/mobile.jpg";
+import BoxImage from "public/images/assets/boxshot.png";
+import DownloadingGif from "public/images/assets/download-icon.gif";
 
 const Home: NextPage = () => {
   return (
@@ -72,6 +78,49 @@ const Home: NextPage = () => {
         {/* Header Body End*/}
       </header>
       {/* Header End */}
+      <div style={{ clear: "both" }}></div>
+      <main>
+        <SpecialBox position="left" className={classes.box}>
+          <>
+            <div className={classes.title}>
+              <h1>Enjoy on your TV.</h1>
+              <h2>
+                Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV,
+                Blu-ray players, and more.
+              </h2>
+            </div>
+            <div className={classes.tv_box}>
+              <Image src={TvImage} />
+              <div className={classes.video}>
+                <video autoPlay={true} loop={true} playsInline={true} muted>
+                  <source src="/videos/video-tv-0819.m4v" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          </>
+        </SpecialBox>
+        <SpecialBox className={classes.box} position="right">
+          <>
+            <div className={classes.title}>
+              <h1>Download your shows to watch offline.</h1>
+              <h2>
+                Save your favorites easily and always have something to watch.
+              </h2>
+            </div>
+            <div className={classes.mobile}>
+              <Image src={MobileImage} />
+              <div className={classes.download_dialog}>
+                <Image className={classes.download_cover} src={BoxImage} />
+                <div className={classes.download_title}>
+                  <span>Stranger Things</span>
+                  <span>Downloading...</span>
+                </div>
+                <Image src={DownloadingGif} />
+              </div>
+            </div>
+          </>
+        </SpecialBox>
+      </main>
     </div>
   );
 };
