@@ -6,6 +6,8 @@ import Link from "next/link";
 import Logo from "public/app.svg";
 import classes from "styles/pages/index/index.module.scss";
 import TvImage from "public/images/assets/tv.png";
+import KidsTvImage from "public/images/assets/kids_tv.png";
+import MultiDeviceImage from "public/images/assets/device-pile.png";
 import MobileImage from "public/images/assets/mobile.jpg";
 import BoxImage from "public/images/assets/boxshot.png";
 import DownloadingGif from "public/images/assets/download-icon.gif";
@@ -117,6 +119,39 @@ const Home: NextPage = () => {
                 </div>
                 <Image src={DownloadingGif} />
               </div>
+            </div>
+          </>
+        </SpecialBox>
+        <SpecialBox className={classes.box} position="left">
+          <>
+            <div className={classes.title}>
+              <h1>Watch everywhere.</h1>
+              <h2>
+                Stream unlimited movies and TV shows on your phone, tablet,
+                laptop, and TV without paying more.
+              </h2>
+            </div>
+            <div className={classes.multi_device}>
+              <Image src={MultiDeviceImage} />
+              <div className={classes.video}>
+                <video autoPlay={true} loop={true} playsInline={true} muted>
+                  <source src="/videos/video-devices.m4v" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          </>
+        </SpecialBox>
+        <SpecialBox className={classes.box} position="right">
+          <>
+            <div className={classes.title}>
+              <h1>Create profiles for kids.</h1>
+              <h2>
+                Send kids on adventures with their favorite characters in a
+                space made just for them—free with your membership.
+              </h2>
+            </div>
+            <div>
+              <Image src={KidsTvImage} />
             </div>
           </>
         </SpecialBox>
