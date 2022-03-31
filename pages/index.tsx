@@ -11,8 +11,13 @@ import MultiDeviceImage from "public/images/assets/device-pile.png";
 import MobileImage from "public/images/assets/mobile.jpg";
 import BoxImage from "public/images/assets/boxshot.png";
 import DownloadingGif from "public/images/assets/download-icon.gif";
+import FAQBox from "components/FAQBox";
+import faq from "data/faq.json";
+import type { FAQ } from "types/FAQ";
+import Newsletter from "components/Newsletter";
 
 const Home: NextPage = () => {
+  const faqData: FAQ[] = faq;
   return (
     <div className={classes.container}>
       <Head>
@@ -52,30 +57,7 @@ const Home: NextPage = () => {
             Ready to watch? Enter your email to create or restart your
             membership.
           </p>
-          <form className={classes.form} onSubmit={(el) => el.preventDefault()}>
-            <div className={classes.form_input}>
-              <input
-                id="email"
-                aria-label="Email subscribe input"
-                aria-placeholder="Email Address"
-                placeholder=" "
-              />
-              <label
-                className={classes.form_label}
-                htmlFor="#email"
-                onClick={(el) => {
-                  const input: HTMLInputElement | null | undefined =
-                    el.currentTarget.parentElement?.querySelector("#email");
-                  input?.focus();
-                }}
-              >
-                Email Address
-              </label>
-            </div>
-            <button className={classes.form_submit} type="submit">
-              Get Started
-            </button>
-          </form>
+          <Newsletter />
         </div>
         {/* Header Body End*/}
       </header>
@@ -92,7 +74,7 @@ const Home: NextPage = () => {
               </h2>
             </div>
             <div className={classes.tv_box}>
-              <Image src={TvImage} />
+              <Image src={TvImage} alt="TV Image" />
               <div className={classes.video}>
                 <video autoPlay={true} loop={true} playsInline={true} muted>
                   <source src="/videos/video-tv-0819.m4v" type="video/mp4" />
@@ -110,14 +92,18 @@ const Home: NextPage = () => {
               </h2>
             </div>
             <div className={classes.mobile}>
-              <Image src={MobileImage} />
+              <Image src={MobileImage} alt="Mobile" />
               <div className={classes.download_dialog}>
-                <Image className={classes.download_cover} src={BoxImage} />
+                <Image
+                  className={classes.download_cover}
+                  src={BoxImage}
+                  alt="Box Image"
+                />
                 <div className={classes.download_title}>
                   <span>Stranger Things</span>
                   <span>Downloading...</span>
                 </div>
-                <Image src={DownloadingGif} />
+                <Image src={DownloadingGif} alt="Download Gif" />
               </div>
             </div>
           </>
@@ -132,7 +118,7 @@ const Home: NextPage = () => {
               </h2>
             </div>
             <div className={classes.multi_device}>
-              <Image src={MultiDeviceImage} />
+              <Image src={MultiDeviceImage} alt="Mutli Device" />
               <div className={classes.video}>
                 <video autoPlay={true} loop={true} playsInline={true} muted>
                   <source src="/videos/video-devices.m4v" type="video/mp4" />
@@ -151,10 +137,27 @@ const Home: NextPage = () => {
               </h2>
             </div>
             <div>
-              <Image src={KidsTvImage} />
+              <Image src={KidsTvImage} alt="Kids tv" />
             </div>
           </>
         </SpecialBox>
+        <div className={classes.faq_container}>
+          <h3 className={classes.faq_title}>Frequently Asked Questions</h3>
+          <div className={classes.faqs_box}>
+            {faqData.map((item, key) => (
+              <FAQBox
+                title={item.title}
+                description={item.description}
+                key={key}
+              />
+            ))}
+          </div>
+          <p>
+            Ready to watch? Enter your email to create or restart your
+            membership.
+          </p>
+          <Newsletter />
+        </div>
       </main>
     </div>
   );
