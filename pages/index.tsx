@@ -15,6 +15,7 @@ import FAQBox from "components/FAQBox";
 import faq from "data/faq.json";
 import type { FAQ } from "types/FAQ";
 import Newsletter from "components/Newsletter";
+import LanguageSelector from "components/LanguageSelector";
 
 const Home: NextPage = () => {
   const faqData: FAQ[] = faq;
@@ -32,13 +33,7 @@ const Home: NextPage = () => {
             <Logo />
           </div>
           <div className={classes.menu}>
-            <div className={classes.lang_selector}>
-              <select>
-                <option defaultChecked>English</option>
-                <option>Deutsch</option>
-                <option>Francais</option>
-              </select>
-            </div>
+            <LanguageSelector />
             <div className={classes.signin_button}>
               <Link href="/login" passHref>
                 <button>Sign In</button>
@@ -159,6 +154,31 @@ const Home: NextPage = () => {
           <Newsletter />
         </div>
       </main>
+      <footer className={classes.footer}>
+        <span>
+          Questions? Call <Link href="tel:020790635">020-79 06 35</Link>
+        </span>
+        <ul>
+          <li>Lorem, ipsum.</li>
+          <li>Commodi, nulla?</li>
+          <li>Aliquam, voluptatum.</li>
+          <li>Perferendis, laudantium.</li>
+          <li>Assumenda, enim.</li>
+          <li>Modi, dolorem?</li>
+          <li>Soluta, perspiciatis!</li>
+          <li>Perferendis, non.</li>
+          <li>Exercitationem, perferendis!</li>
+          <li>Accusantium, consectetur!</li>
+          <li>Voluptatum, pariatur.</li>
+          <li>Doloremque, ut?</li>
+          <li>Dolore, quasi.</li>
+          <li>Amet, distinctio?</li>
+          <li>Et, atque!</li>
+          <li>Maiores, quasi.</li>
+          <li>Quaerat, adipisci.</li>
+        </ul>
+        <LanguageSelector />
+      </footer>
     </div>
   );
 };

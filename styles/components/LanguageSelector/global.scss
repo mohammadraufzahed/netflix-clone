@@ -1,0 +1,19 @@
+.lang_selector {
+  & > select {
+    background-color: transparent;
+    color: var(--primary-three);
+    padding: 0.3em 1.2em;
+    font-weight: normal;
+    border-color: var(--primary-three);
+    font-weight: bold !important;
+
+    &:focus {
+      outline: 0.9px solid var(--primary-three);
+    }
+    & > option {
+      background-color: var(--primary-four);
+      font-size: 0.8rem;
+      border: 0;
+    }
+  }
+}
